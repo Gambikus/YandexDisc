@@ -1,0 +1,20 @@
+version: "3.5"
+
+services:
+  main:
+    container_name: main-sevice
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    depends_on:
+      - database
+  database:
+    image: postgres:14.4
+    container_name: database-service
+    environment:
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=items
+    ports:
+      - 5432:5432

@@ -1,7 +1,6 @@
 package com.example.newdisc.historyResponse;
 
 import com.example.newdisc.components.Item;
-import com.example.newdisc.components.SystemItemImport;
 import com.example.newdisc.tools.SystemItemType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
