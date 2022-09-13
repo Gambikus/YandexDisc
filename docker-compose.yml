@@ -18,4 +18,4 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=items
     ports:
-      - 22:5432
+      - 5432:5432
