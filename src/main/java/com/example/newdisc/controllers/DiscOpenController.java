@@ -42,6 +42,14 @@ public class DiscOpenController {
                 Item newItem = systemItemRepository.findById(item.getId()).get();
                 if (newItem.getParentId() != null) {
                     folders.add(newItem.getParentId());
+                    /*
+                        Меня дату обновления родителя, чтобы в случае изменения родителя
+                        у айтема не забыть изменить дату родителя в методе updateFolder
+                     */
+                    Item parentItem = systemItemRepository.findById(newItem.getParentId()).get();
+                    parentItem.setDate(date);
+                    systemItemRepository.deleteById(parentItem.getId());
+                    systemItemRepository.save(parentItem);
                     isUsed.put(newItem.getParentId(), false);
                 }
                 if (item.getParentId() != null) {
